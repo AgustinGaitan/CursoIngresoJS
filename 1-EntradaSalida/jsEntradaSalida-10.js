@@ -6,12 +6,14 @@ function mostrarAumento()
 {
 	var importe;
 	var resultado;
+	var descuento;
+	descuento=25;
 
 	importe = document.getElementById('importe').value;
 	importe = parseInt(importe);
 	resultado = parseInt(resultado);
 
-	resultado = importe-25*importe/100;
+	resultado = importe-descuento*importe/100;
 
 	resultado = document.getElementById('resultado').value=resultado;
 
