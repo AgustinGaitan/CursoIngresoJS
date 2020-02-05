@@ -15,7 +15,7 @@ function mostrarAumento()
 
 	resultado = aumento*importe/100+importe;
 
-	resultado = document.getElementById('resultado').value=resultado;
+	document.getElementById('resultado').value=resultado;
 
 	console.log(resultado);
 
