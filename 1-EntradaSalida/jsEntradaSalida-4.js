@@ -4,6 +4,11 @@
 */
 function mostrar()
 {
+	var nombre;
+
+	nombre=prompt("Ingrese su nombre aqui","Ejemplo: Agustín");
+	nombre= document.getElementById('elNombre').value=nombre;
+
 
 }
 
