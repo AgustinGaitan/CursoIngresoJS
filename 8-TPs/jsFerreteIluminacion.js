@@ -33,7 +33,8 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 					descuento=40;
 				break;
 				default:
-					descuento=30
+				descuento=30
+				break;
 			}
 
 			break;
@@ -42,9 +43,11 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 			{
 				case:"ArgentinaLuz"
 				case:"FelipeLamparas"
-					descuento=25
+					descuento=25;
 				break;
-				default:20
+				default:
+					descuento=20;
+				break;
 			}
 			break;
 		case 3:
@@ -58,6 +61,7 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 				break;
 				default:
 				descuento=5
+				break;
 			}
 			break;
 		case 1:   					//hasta que no se pone break; lo toma como un solo case//
