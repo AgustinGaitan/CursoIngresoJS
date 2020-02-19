@@ -1,13 +1,19 @@
 function mostrar()
 {
 	//alert('iteración while');
-	var numero;
-	numero=0;
 
-	while(numero<11)
+	/*  - asegurarse de que las variables tengan un valor correcto, cargarle un valor a las var
+		- pone bien la comparacion
+		- modificar la comparacion
+
+	*/
+	var contador;
+	contador=0;
+
+	while(contador<10)
 	{
-		console.log("Numero " +numero);
-		numero++;
+		contador=contador+1;
+		console.info("Numero:" +contador);
 	}
 
 

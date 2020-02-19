@@ -6,7 +6,7 @@ function mostrar()
 
 	while(numero>0)
 	{
-		console.log("Numero: " +numero);
+		console.info("Numero: " +numero);
 		numero--;
 	}
 
