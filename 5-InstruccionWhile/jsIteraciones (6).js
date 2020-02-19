@@ -9,16 +9,13 @@ function mostrar()
 
 	while(contador<5)
 	{
-		acumulador=prompt("Ingrese un numero")
+		acumulador=prompt("Ingrese un numero");
 
-		contador=contador+1
+		contador=contador+1;
 		acumulador=acumulador+contador;
 	}
 
-
-
-
-document.getElementById('suma').value=acumulador;
-document.getElementById('promedio').value=acumulador/5;
+	document.getElementById('suma').value=acumulador;
+	document.getElementById('promedio').value=acumulador/5;
 
 }//FIN DE LA FUNCIÓN
