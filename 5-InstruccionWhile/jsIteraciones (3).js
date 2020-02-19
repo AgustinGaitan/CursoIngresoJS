@@ -1,11 +1,14 @@
 function mostrar()
 {
-	var clave=prompt("Ingrese el número clave");	
+	var clave;
+	clave=prompt("Ingrese el número clave");	
 
-	while(clave=="utn750")
+	while(clave!="utn750")
 	{
-	 	console.log("La contraseña es correcta");
+		alert("error");
+	 	clave=prompt("Ingrese el número clave");
 	}
+	alert("Clave correcta");
 
 
 }//FIN DE LA FUNCIÓN

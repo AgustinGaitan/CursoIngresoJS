@@ -1,8 +1,20 @@
 function mostrar()
 {
 
-	var contador=0;
-	var acumulador=0;
+	var contador;
+	var acumulador;
+	contador=0;
+	acumulador=0;
+	acumulador=prompt("Ingrese un numero");
+
+	while(contador<5)
+	{
+		acumulador=prompt("Ingrese un numero")
+
+		contador=contador+1
+		acumulador=acumulador+contador;
+	}
+
 
 
 

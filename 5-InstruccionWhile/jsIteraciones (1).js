@@ -3,7 +3,7 @@ function mostrar()
 	//alert('iteración while');
 
 	/*  - asegurarse de que las variables tengan un valor correcto, cargarle un valor a las var
-		- pone bien la comparacion
+		- poner bien la comparacion
 		- modificar la comparacion
 
 	*/
