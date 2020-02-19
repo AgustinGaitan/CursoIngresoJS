@@ -2,9 +2,9 @@ function mostrar()
 {
 	//alert('iteración while');
 	var numero;
-	numero=0;
+	numero=10;
 
-	while(numero<11)
+	while(numero>0)
 	{
 		console.log("Numero: " +numero);
 		numero--;
