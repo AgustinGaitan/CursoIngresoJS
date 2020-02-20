@@ -6,16 +6,14 @@ function mostrar()
 	var numeroIngresado;
 	contador=0;
 	acumulador=0;
-	acumulador=prompt("Ingrese un numero");
-	acumulador=parseInt(acumulador);
 
 	while(contador<5)
 	{
 		numeroIngresado=prompt("Ingrese un numero");
 
 		contador=contador+1;
-		acumulador=acumulador+numeroIngresado;
 		numeroIngresado=parseInt(numeroIngresado);
+		acumulador=acumulador+numeroIngresado;
 	}
 
 	document.getElementById('suma').value=acumulador;

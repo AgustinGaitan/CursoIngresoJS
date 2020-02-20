@@ -4,6 +4,7 @@ function mostrar()
 	var contador=0;
 	var positivo=0;
 	var negativo=1;
+	var numeroIngresado;
 	
 	var respuesta='si';
 
