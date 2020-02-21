@@ -7,77 +7,51 @@ D.	Sueldo bruto, no menor a 8000.
 E.	Número de legajo, numérico de 4 cifras, sin ceros a la izquierda.
 F.	Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para nacionalizados.
  */
-function ComenzarIngreso () 
+function ComenzarIngreso ()
 {
 	var edad;
 	var sexo;
 	var estadoCivil;
 	var sueldoBruto;
-	var legajo;
+	var numeroLegajo;
 	var nacionalidad;
 
-		estadoCivil=parseInt(estadoCivil);
-		sueldoBruto=parseInt(sueldoBruto);
-		legajo=parseInt(legajo);
-        edad=prompt("Ingrese su edad", "De 18 a 90");
+	edad=0;
+	sexo=0;
+	estadoCivil=0;
+	sueldoBruto=0;
+	numeroLegajo=0;
 
+	while(isNaN(edad) || edad<18 || edad>90)
+	{
+		edad=prompt("Ingrese su edad, recuerde que debe ser entre 18 y 90");
+	}
+	while(sexo!="F" && sexo!="M" || !isNaN(sexo))
+	{
+		sexo=prompt("Ingrese su sexo, 'M' para masculino, 'F' para femenino.");
+	}
+	while(estadoCivil<1 || estadoCivil>4 || isNaN(estadoCivil))
+	{
+		estadoCivil=prompt("Ingrese su estado civil. Tener en cuenta que 1= Soltero, 2= Casado, 3= Divorciado, 4= Viudo");
+	}
+	while(sueldoBruto<8000 || isNaN(sueldoBruto))
+	{
+		sueldoBruto=prompt("Ingrese sueldo bruto,debe ser menor a 8000");
+	}
+	while(numeroLegajo<1000 || numeroLegajo>9999 || isNaN(numeroLegajo))
+	{
+		numeroLegajo=prompt("Ingrese su numero de legajo y debe ser de 4 digitos.");
+	}
+	while(nacionalidad!="A" && nacionalidad!="E" && nacionalidad!="N" || !isNaN(nacionalidad))
+	{	
+		nacionalidad=prompt("Ingrese su nacionalidad.A= Argentino, E= Extranjero y N= Nacionalizado");
+		
+	}
 
-		if(edad>17&&edad<91)
-		{
-			document.getElementById('Edad').value=edad;
-			sexo=prompt("Ingrese su sexo","'m' o 'f'");
-
-			switch(sexo)
-			{
-				case "m":
-				case "f":
-				document.getElementById('Sexo').value=sexo;
-				estadoCivil=prompt("Ingrese su estado civil: 1 para Soltero, 2 para casados, 3 para divorciados y 4 para viudos","1,2,3,4");
-				break;
-				
-				switch(estadoCivil)
-				{
-					case 1:
-					estadoCivil="Soltero/a";
-					case 2:
-					estadoCivil="Casado/a";
-					case 3:
-					estadoCivil="Divorciado/a";
-					case 4:
-					estadoCivil="Viudo/a";
-					document.getElementById('EstadoCivil').value=estadoCivil;
-					sueldoBruto=prompt("Ingrese su sueldo(no menor a $8000)");
-					break;
-					
-					while(sueldoBruto<8000)
-					{
-						sueldoBruto=prompt("Ingrese su sueldo(no menor a $8000)");
-						document.getElementById('Sueldo').value=sueldoBruto;
-						legajo=prompt("Ingrese su legajo, de 4 cifras, sin ceros a la izquierda")
-
-					 }
-						if(!isNaN(legajo));
-						{
-							document.getElementById('Legajo').value=legajo;
-							nacionalidad=prompt("Ingrese su nacionalidad, 'A' para argentinos, 'E' para extranjeros, 'N' para nacionalizados")
-
-							switch(nacionalidad)
-							{
-								case "a":
-								nacionalidad=="Argentino/a";
-								break;
-								case "e":
-								nacionalidad=="Extranjero/a";
-								break;
-								case "n":
-								nacionalidad=="Nacionalizado/a";
-								break;
-								document.getElementById('Nacionalidad').value=nacionalidad;
-							}
-						}
-					
-				}
-			}
-		}
- 
+	document.getElementById('Edad').value=edad;
+	document.getElementById('Sexo').value=sexo;
+	document.getElementById('EstadoCivil').value=estadoCivil;
+	document.getElementById('Sueldo').value=sueldoBruto;
+	document.getElementById('Legajo').value=numeroLegajo;
+	document.getElementById('Nacionalidad').value=nacionalidad;
 }
