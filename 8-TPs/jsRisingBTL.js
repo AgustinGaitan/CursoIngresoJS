@@ -13,45 +13,85 @@ function ComenzarIngreso ()
 	var sexo;
 	var estadoCivil;
 	var sueldoBruto;
-	var numeroLegajo;
+	var legajo;
 	var nacionalidad;
 
 	edad=0;
 	sexo=0;
 	estadoCivil=0;
 	sueldoBruto=0;
-	numeroLegajo=0;
-
+	legajo=0;
+	
 	while(isNaN(edad) || edad<18 || edad>90)
 	{
 		edad=prompt("Ingrese su edad, recuerde que debe ser entre 18 y 90");
+		edad=parseInt(edad);
+
 	}
-	while(sexo!="F" && sexo!="M" || !isNaN(sexo))
+	while(sexo!="m" && sexo!="f" || !isNaN(sexo))
 	{
-		sexo=prompt("Ingrese su sexo, 'M' para masculino, 'F' para femenino.");
+		sexo=(prompt("Ingrese su sexo, 'M' para masculino, 'F' para femenino.")).toLowerCase(); // para que acepte mayuscula
 	}
-	while(estadoCivil<1 || estadoCivil>4 || isNaN(estadoCivil))
+	switch(sexo)  //Los switch que están despues de los while sirven para que devuelva la palabra completa y no la abreviacion, están fuera de los while porque se sobreescribe la variable y no sale del while
+		{
+			case "m":
+			sexo="Masculino";
+			break;
+			case "f":
+			sexo="Femenino";
+			break;
+		}	
+	while(estadoCivil<1 || estadoCivil>4 || isNaN(estadoCivil))   
 	{
 		estadoCivil=prompt("Ingrese su estado civil. Tener en cuenta que 1= Soltero, 2= Casado, 3= Divorciado, 4= Viudo");
+		estadoCivil=parseInt(estadoCivil);
 	}
+	switch(estadoCivil)
+		{
+			case "1":
+			estadoCivil="Soltero/a";
+			break;
+			case "2":
+			estadoCivil="Casado/a";
+			break;
+			case "3":
+			estadoCivil="Divorciado/a";
+			break;
+			case "4":
+			estadoCivil="Viudo/a";
+			break;
+		}	
 	while(sueldoBruto<8000 || isNaN(sueldoBruto))
 	{
-		sueldoBruto=prompt("Ingrese sueldo bruto,debe ser menor a 8000");
+		sueldoBruto=prompt("Ingrese sueldo bruto,no debe ser menor a 8000");
+		sueldoBruto=parseInt(sueldoBruto);
 	}
-	while(numeroLegajo<1000 || numeroLegajo>9999 || isNaN(numeroLegajo))
+	while(legajo<1000 || legajo>9999 || isNaN(legajo))
 	{
-		numeroLegajo=prompt("Ingrese su numero de legajo y debe ser de 4 digitos.");
+		legajo=prompt("Ingrese su numero de legajo y debe ser de 4 digitos.");
+		legajo=parseInt(legajo);
 	}
 	while(nacionalidad!="A" && nacionalidad!="E" && nacionalidad!="N" || !isNaN(nacionalidad))
 	{	
-		nacionalidad=prompt("Ingrese su nacionalidad.A= Argentino, E= Extranjero y N= Nacionalizado");
-		
+		nacionalidad=(prompt("Ingrese su nacionalidad.A= Argentino, E= Extranjero y N= Nacionalizado")).toUpperCase(); //para que acepte minuscula
 	}
-
+	switch(nacionalidad)
+		{
+			case "A":
+			nacionalidad="Argentino/a";
+			break;
+			case "E":
+			nacionalidad="Extranjero/a";
+			break;
+			case "N":
+			nacionalidad="Nacionalizado/a";
+			break;
+		}	
 	document.getElementById('Edad').value=edad;
 	document.getElementById('Sexo').value=sexo;
 	document.getElementById('EstadoCivil').value=estadoCivil;
 	document.getElementById('Sueldo').value=sueldoBruto;
-	document.getElementById('Legajo').value=numeroLegajo;
+	document.getElementById('Legajo').value=legajo;
 	document.getElementById('Nacionalidad').value=nacionalidad;
+		
 }
