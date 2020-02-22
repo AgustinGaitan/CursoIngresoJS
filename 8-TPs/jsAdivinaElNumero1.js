@@ -9,11 +9,12 @@ de no ser igual se debe informar si “falta…”  para llegar al número secre
 */
 var numeroRandom;
 var contador;
+var numeroIngresado;
 
 function comenzar()
 {
 	//Genero el número RANDOM entre 1 y 100
-	
+	contador=0;
 	numeroRandom=Math.floor(Math.random() * 100) + 1;
 	alert("El numero random ya está seleccionado, ahora ingrese un numero del 1 al 100");
 	
@@ -26,8 +27,7 @@ function comenzar()
 
 function verificar()
 {
-	var numeroIngresado;
-	contador=0;
+	contador=contador+1;
 
 	numeroIngresado=document.getElementById('numero').value;
 
@@ -43,11 +43,11 @@ function verificar()
 		}
 		else
 		{
-			alert("Acertaste");
+			alert("Acertaste en " +contador+ " intentos.");
 		}
 	}
 	
-	
+
 	console.log(numeroRandom);
 
 	document.getElementById('intentos').value=contador;
