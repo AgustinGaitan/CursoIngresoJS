@@ -28,7 +28,7 @@ function ComenzarIngreso ()
 		edad=parseInt(edad);
 
 	}
-	while(sexo!="m" && sexo!="f" || !isNaN(sexo))
+	while(!isNaN(sexo) || sexo!="m" && sexo!="f" )
 	{
 		sexo=(prompt("Ingrese su sexo, 'M' para masculino, 'F' para femenino.")).toLowerCase(); // para que acepte mayuscula
 	}
@@ -41,7 +41,7 @@ function ComenzarIngreso ()
 			sexo="Femenino";
 			break;
 		}	
-	while(estadoCivil<1 || estadoCivil>4 || isNaN(estadoCivil))   
+	while(isNaN(estadoCivil) || estadoCivil<1 || estadoCivil>4)   
 	{
 		estadoCivil=prompt("Ingrese su estado civil. Tener en cuenta que 1= Soltero, 2= Casado, 3= Divorciado, 4= Viudo");
 		estadoCivil=parseInt(estadoCivil);
@@ -61,17 +61,17 @@ function ComenzarIngreso ()
 			estadoCivil="Viudo/a";
 			break;
 		}	
-	while(sueldoBruto<8000 || isNaN(sueldoBruto))
+	while(isNaN(sueldoBruto)||sueldoBruto<8000)
 	{
 		sueldoBruto=prompt("Ingrese sueldo bruto,no debe ser menor a 8000");
 		sueldoBruto=parseInt(sueldoBruto);
 	}
-	while(legajo<1000 || legajo>9999 || isNaN(legajo))
+	while(isNaN(legajo)||legajo<1000 || legajo>9999)
 	{
 		legajo=prompt("Ingrese su numero de legajo y debe ser de 4 digitos.");
 		legajo=parseInt(legajo);
 	}
-	while(nacionalidad!="A" && nacionalidad!="E" && nacionalidad!="N" || !isNaN(nacionalidad))
+	while(!isNaN(nacionalidad) || nacionalidad!="A" && nacionalidad!="E" && nacionalidad!="N")
 	{	
 		nacionalidad=(prompt("Ingrese su nacionalidad.A= Argentino, E= Extranjero y N= Nacionalizado")).toUpperCase(); //para que acepte minuscula
 	}
