@@ -1,7 +1,17 @@
 function mostrar()
 {
 
-var repetciones = prompt("ingrese el número de repeticiones");
+	var repeticiones;
+	var numeroIngresado; 	
+	numeroIngresado=prompt("Ingrese la cantidad de veces que desea repetir el mensaje.");
+	numeroIngresado=parseInt(numeroIngresado);
+
+	for(repeticiones=0;repeticiones<numeroIngresado;repeticiones++)
+	{
+		console.log("Hola UTN FRA");
+	}
+
+
 
 
 
