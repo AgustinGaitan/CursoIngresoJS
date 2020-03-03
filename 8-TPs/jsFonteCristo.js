@@ -20,9 +20,9 @@ function NumerosPares ()
 	numeroIngresado=parseInt(numeroIngresado);
 	numerosPares=0;
 	
-	for(i=1;i<numeroIngresado;i++)
+	for(i=2;i<numeroIngresado;i++)
 	{
-		if((i%2)==0)
+		if(numeroIngresado%i==0)
 		{
 			console.log(i);
 			numerosPares++;
@@ -81,9 +81,9 @@ function VerificarPrimo ()
 	numeroIngresado=parseInt(numeroIngresado);
 	numerosPrimos=0;
 
-	for(i=1;i<numeroIngresado;i++)
+	for(i=2;i<numeroIngresado;i++)
 	{
-		if((i%numeroIngresado )==0)
+		if(numeroIngresado%i==0)
 		{
 			alert(+numeroIngresado+ "  es un numero primo.")
 		}

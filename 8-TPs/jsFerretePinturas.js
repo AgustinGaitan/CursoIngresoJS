@@ -24,3 +24,5 @@ function CentigradosFahrenheit ()
 	gradosCentigrados=gradosCentigrados+32;
 	alert("Son " +gradosCentigrados+ " grados Fahrenheit.");
 }
+ //FALTA TERMINAR
+ 
