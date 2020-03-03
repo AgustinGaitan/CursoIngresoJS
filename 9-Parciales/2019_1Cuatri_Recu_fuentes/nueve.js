@@ -5,13 +5,16 @@ function mostrar()
 	var sexoDelEstudiante;
 	var notaFinal;
 	var respuesta;
-	var contadorHombres;
+	var contadorDeHombres;
 	var contadorHombresAprobados;
 	var promedioDeNotasDeMenoresDeEdad;
 	var cantidadDeMenoresDeEdad;
 	var promedioDeNotasDeAdolescentes;
 	var cantidadAdolescentes;
 	var cantidadDeMayores;
+	var acumuladorNotaFinalMayores;
+	var acumuladorNotaFinalMenores;
+	var acumuladorNotaFinalAdolescentes;
 	var promedioDeNotasDeMayores;
 	var promedioDeNotasDeHombres;
 	var promedioDeNotasDeMujeres;
@@ -21,18 +24,25 @@ function mostrar()
 	var acumuladorNotaFinalHombres;
 	var acumuladorNotaFinalMujeres;
 
-	contadorHombres=0;
+	contadorDeHombres=0;
 	contadorHombresAprobados=0;
 	cantidadDeMenoresDeEdad=0;
 	cantidadAdolescentes=0;
 	cantidadDeMayores=0;
 	contadorDeMujeres=0;
-	promedioDeNotasDeMujeres=0;
+	acumuladorNotaFinalAdolescentes=0;
+	acumuladorNotaFinalMenores=0;
+	acumuladorNotaFinalMayores=0;
 	promedioDeNotasDeMayores=0;
 	promedioDeNotasDeHombres=0;
 	promedioDeNotasDeAdolescentes=0;
 	promedioDeNotasDeMenoresDeEdad=0;
-
+	acumuladorNotaFinalHombres=0;
+	acumuladorNotaFinalMujeres=0;
+	promedioDeNotasDeMujeres=0;
+	contadorNotaFinalMujeres=0;
+	contadorNotaFinalHombres=0;
+	
 	do
 	{
 		nombreDelEstudiante=prompt("Ingrese el nombre");
@@ -53,18 +63,6 @@ function mostrar()
 			notafinal=parseInt(notaFinal);
 		}while(isNaN(notaFinal));
 
-		switch(sexoDelEstudiante)
-		{
-			case "m":
-				contadorHombres++;
-				acumuladorNotaFinalHombres=acumuladorNotaFinalHombres+notaFinal;
-				break;
-			default:
-				contadorDeMujeres++;
-				acumuladorNotaFinalMujeres=acumuladorNotaFinalMujeres+notaFinal;
-				break;
-		}
-
 		if(notaFinal>4 && sexoDelEstudiante=="m")
 		{
 			contadorHombresAprobados++;
@@ -73,17 +71,35 @@ function mostrar()
 		if(edadDelEstudiante<18)
 		{
 			cantidadDeMenoresDeEdad++;
+			acumuladorNotaFinalMenores=acumuladorNotaFinalMenores+notaFinal;
 			
 		}else 
 		{
-			cantidadDeMayores++;
+			if(edadDelEstudiante>17)
+			{
+				cantidadDeMayores++;
+				acumuladorNotaFinalMayores=acumuladorNotaFinalMayores+notaFinal;
+			}
+				if(edadDelEstudiante>13 && edadDelEstudiante<18)
+				{
+					cantidadAdolescentes++;
+					acumuladorNotaFinalAdolescentes=acumuladorNotaFinalAdolescentes+notaFinal;
+
+				}
 		}
-		
-		if(edadDelEstudiante>12 && edadDelEstudiante<18)
+			switch(sexoDelEstudiante)
 		{
-			cantidadAdolescentes++;
+			case "m":
+				contadorDeHombres++;
+				acumuladorNotaFinalHombres=acumuladorNotaFinalHombres + notaFinal;
+				break;
+			default:
+				contadorDeMujeres++;
+				acumuladorNotaFinalMujeres=acumuladorNotaFinalMujeres + notaFinal;
+				break;
 		}
-		
+
+
 		console.log("El nombre es " +nombreDelEstudiante);
 		console.log("La edad es " +edadDelEstudiante);
 		console.log("El sexo es " +sexoDelEstudiante);
@@ -94,14 +110,15 @@ function mostrar()
 	}while(respuesta=="si");
 	
 
-	promedioDeNotasDeMenoresDeEdad=notaFinal/cantidadDeMenoresDeEdad;
-	promedioDeNotasDeMayores=notaFinal/cantidadDeMayores;
-	promedioDeNotasDeAdolescentes=notaFinal/cantidadAdolescentes;
-	promedioDeNotasDeHombres=acumuladorNotaFinalHombres/contadorHombres;
+	promedioDeNotasDeMenoresDeEdad=acumuladorNotaFinalMenores/cantidadDeMenoresDeEdad;
+	promedioDeNotasDeMayores=acumuladorNotaFinalMayores/cantidadDeMayores;
+	promedioDeNotasDeAdolescentes=acumuladorNotaFinalAdolescentes/cantidadAdolescentes;
+	promedioDeNotasDeHombres=acumuladorNotaFinalHombres/contadorDeHombres;
 	promedioDeNotasDeMujeres=acumuladorNotaFinalMujeres/contadorDeMujeres;
 	document.write("<br> La cantidad de varones aprobados es" +contadorHombresAprobados);
 	document.write("<br> El promedio de notas de los menores de edad es " +promedioDeNotasDeMenoresDeEdad);
 	document.write("<br> El promedio de notas de los adolescentes es " +promedioDeNotasDeAdolescentes);
 	document.write("<br> El promedio de notas de los mayores de edad es " +promedioDeNotasDeMayores);
-
+	document.write("<br> El promedio de notas de los hombres es " +promedioDeNotasDeHombres);
+	document.write("<br> El promedio de notas de las mujeres es" +promedioDeNotasDeMujeres);
 }
