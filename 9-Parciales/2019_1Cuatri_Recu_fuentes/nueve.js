@@ -18,8 +18,8 @@ function mostrar()
 	var contadorDeMujeres;
 	var contadorNotaFinalMujeres;
 	var contadorNotaFinalHombres;
-	var sumaNotaFinalHombres;
-	var sumaNotaFinalMujeres;
+	var acumuladorNotaFinalHombres;
+	var acumuladorNotaFinalMujeres;
 
 	contadorHombres=0;
 	contadorHombresAprobados=0;
@@ -47,21 +47,23 @@ function mostrar()
 			sexoDelEstudiante=prompt("Ingrese el sexo, 'f' para femenino, 'm' para masculino");
 		}while(!isNaN(sexoDelEstudiante) || sexoDelEstudiante!="f" && sexoDelEstudiante != "m");
 
-		switch(sexoDelEstudiante)
-		{
-			case "m":
-				contadorHombres++;
-				
-				break;
-			default:
-				contadorDeMujeres++;
-				break;
-		}
 		do
 		{
 			notaFinal=prompt("Ingrese la nota final");
 			notafinal=parseInt(notaFinal);
 		}while(isNaN(notaFinal));
+
+		switch(sexoDelEstudiante)
+		{
+			case "m":
+				contadorHombres++;
+				acumuladorNotaFinalHombres=acumuladorNotaFinalHombres+notaFinal;
+				break;
+			default:
+				contadorDeMujeres++;
+				acumuladorNotaFinalMujeres=acumuladorNotaFinalMujeres+notaFinal;
+				break;
+		}
 
 		if(notaFinal>4 && sexoDelEstudiante=="m")
 		{
@@ -95,8 +97,8 @@ function mostrar()
 	promedioDeNotasDeMenoresDeEdad=notaFinal/cantidadDeMenoresDeEdad;
 	promedioDeNotasDeMayores=notaFinal/cantidadDeMayores;
 	promedioDeNotasDeAdolescentes=notaFinal/cantidadAdolescentes;
-	promedioDeNotasDeHombres=notaFinal/contadorHombres;
-	promedioDeNotasDeMujeres=notaFinal/contadorDeMujeres;
+	promedioDeNotasDeHombres=acumuladorNotaFinalHombres/contadorHombres;
+	promedioDeNotasDeMujeres=acumuladorNotaFinalMujeres/contadorDeMujeres;
 	document.write("<br> La cantidad de varones aprobados es" +contadorHombresAprobados);
 	document.write("<br> El promedio de notas de los menores de edad es " +promedioDeNotasDeMenoresDeEdad);
 	document.write("<br> El promedio de notas de los adolescentes es " +promedioDeNotasDeAdolescentes);
