@@ -1,124 +1,121 @@
 function mostrar()
 {	
-	var nombreDelEstudiante;
-	var edadDelEstudiante;
-	var sexoDelEstudiante;
+	var nombre;
+	var edad;
+	var sexo;
 	var notaFinal;
 	var respuesta;
+	var contadorDeHombresAprobados;
+	var contadorDeMenoresDeEdad;
+	var contadorDeAdolescentes;
+	var contadorDeMayoresDeEdad;
+	var acumuladorDeNotasDeMenoresDeEdad;
+	var acumuladorDeNotasDeAdolescentes;
+	var acumuladorDeNotasDeMayoresDeEdad;
 	var contadorDeHombres;
-	var contadorHombresAprobados;
-	var promedioDeNotasDeMenoresDeEdad;
-	var cantidadDeMenoresDeEdad;
-	var promedioDeNotasDeAdolescentes;
-	var cantidadAdolescentes;
-	var cantidadDeMayores;
-	var acumuladorNotaFinalMayores;
-	var acumuladorNotaFinalMenores;
-	var acumuladorNotaFinalAdolescentes;
-	var promedioDeNotasDeMayores;
-	var promedioDeNotasDeHombres;
-	var promedioDeNotasDeMujeres;
 	var contadorDeMujeres;
-	var contadorNotaFinalMujeres;
-	var contadorNotaFinalHombres;
-	var acumuladorNotaFinalHombres;
-	var acumuladorNotaFinalMujeres;
+	var acumuladorDeNotasDeMujeres;
+	var acumuladorDeNotasDeHombres;
+	var promedioDeNotasDeMenoresDeEdad;
+	var promedioDeNotasDeAdolescentes;
+	var promedioDeNotasDeMayoresDeEdad;
+	var promedioDeNotasDeMujeres;
+	var promedioDeNotasDeHombres;
 
+	contadorDeHombresAprobados=0;
+	contadorDeAdolescentes=0;
+	contadorDeMayoresDeEdad=0;
+	contadorDeMenoresDeEdad=0;
+	acumuladorDeNotasDeMenoresDeEdad=0;
+	acumuladorDeNotasDeAdolescentes=0;
+	acumuladorDeNotasDeMayoresDeEdad=0;
 	contadorDeHombres=0;
-	contadorHombresAprobados=0;
-	cantidadDeMenoresDeEdad=0;
-	cantidadAdolescentes=0;
-	cantidadDeMayores=0;
 	contadorDeMujeres=0;
-	acumuladorNotaFinalAdolescentes=0;
-	acumuladorNotaFinalMenores=0;
-	acumuladorNotaFinalMayores=0;
-	promedioDeNotasDeMayores=0;
-	promedioDeNotasDeHombres=0;
-	promedioDeNotasDeAdolescentes=0;
-	promedioDeNotasDeMenoresDeEdad=0;
-	acumuladorNotaFinalHombres=0;
-	acumuladorNotaFinalMujeres=0;
-	promedioDeNotasDeMujeres=0;
-	contadorNotaFinalMujeres=0;
-	contadorNotaFinalHombres=0;
-	
+	acumuladorDeNotasDeMujeres=0;
+	acumuladorDeNotasDeHombres=0;
+
 	do
 	{
-		nombreDelEstudiante=prompt("Ingrese el nombre");
 		do
 		{
-			edadDelEstudiante=prompt("Ingrese la edad");
-			edadDelEstudiante=parseInt(edadDelEstudiante);
-		}while(isNaN(edadDelEstudiante));
+			nombre=prompt("Ingrese su nombre");
+		}while(!isNaN(nombre));
+		
+		do
+		{
+			edad=prompt("Ingrese la edad, menor a 100");
+			edad=parseInt(edad);
+		}while(isNaN(edad) || edad>100);
 
 		do
 		{
-			sexoDelEstudiante=prompt("Ingrese el sexo, 'f' para femenino, 'm' para masculino");
-		}while(!isNaN(sexoDelEstudiante) || sexoDelEstudiante!="f" && sexoDelEstudiante != "m");
+			sexo=prompt("Ingrese el sexo, 'm' para masculino, 'f' para femenino");
+		}while(!isNaN(sexo) || sexo!="m" && sexo!="f");
 
 		do
 		{
 			notaFinal=prompt("Ingrese la nota final");
-			notafinal=parseInt(notaFinal);
-		}while(isNaN(notaFinal));
+			notaFinal=parseInt(notaFinal);
+		}while(isNaN(notaFinal) || notaFinal<1 || notaFinal>10);
 
-		if(notaFinal>4 && sexoDelEstudiante=="m")
+		if(notaFinal>4 && sexo=="m")
 		{
-			contadorHombresAprobados++;
+			contadorDeHombresAprobados++;
 		}
 
-		if(edadDelEstudiante<18)
+		if(edad>17)
 		{
-			cantidadDeMenoresDeEdad++;
-			acumuladorNotaFinalMenores=acumuladorNotaFinalMenores+notaFinal;
-			
-		}else 
+			contadorDeMayoresDeEdad++;
+			acumuladorDeNotasDeMayoresDeEdad=acumuladorDeNotasDeMayoresDeEdad+notaFinal;
+
+		}else
 		{
-			if(edadDelEstudiante>17)
+			if(edad<18)
 			{
-				cantidadDeMayores++;
-				acumuladorNotaFinalMayores=acumuladorNotaFinalMayores+notaFinal;
+				contadorDeMenoresDeEdad++;
+				acumuladorDeNotasDeMenoresDeEdad=acumuladorDeNotasDeMenoresDeEdad+notaFinal;
 			}
-				if(edadDelEstudiante>13 && edadDelEstudiante<18)
-				{
-					cantidadAdolescentes++;
-					acumuladorNotaFinalAdolescentes=acumuladorNotaFinalAdolescentes+notaFinal;
-
-				}
+			if (edad>13 && edad<18)
+			{
+				contadorDeAdolescentes++;
+				acumuladorDeNotasDeAdolescentes=acumuladorDeNotasDeAdolescentes+notaFinal;
+			}
 		}
-			switch(sexoDelEstudiante)
-		{
-			case "m":
-				contadorDeHombres++;
-				acumuladorNotaFinalHombres=acumuladorNotaFinalHombres + notaFinal;
-				break;
-			default:
-				contadorDeMujeres++;
-				acumuladorNotaFinalMujeres=acumuladorNotaFinalMujeres + notaFinal;
-				break;
-		}
-
-
-		console.log("El nombre es " +nombreDelEstudiante);
-		console.log("La edad es " +edadDelEstudiante);
-		console.log("El sexo es " +sexoDelEstudiante);
-		console.log("La nota final es " +notaFinal);
+			switch(sexo)
+			{
+				case "m":
+					contadorDeHombres++
+					acumuladorDeNotasDeHombres=acumuladorDeNotasDeHombres+notaFinal;
+						break;
+				default:
+					contadorDeMujeres++;
+					acumuladorDeNotasDeMujeres=acumuladorDeNotasDeMujeres+notaFinal;
+						break;
+			}
 		
 
-		respuesta=prompt("Quiere continuar? ingrese 'si'. En caso contrario, escriba otra cosa.");
-	}while(respuesta=="si");
-	
 
-	promedioDeNotasDeMenoresDeEdad=acumuladorNotaFinalMenores/cantidadDeMenoresDeEdad;
-	promedioDeNotasDeMayores=acumuladorNotaFinalMayores/cantidadDeMayores;
-	promedioDeNotasDeAdolescentes=acumuladorNotaFinalAdolescentes/cantidadAdolescentes;
-	promedioDeNotasDeHombres=acumuladorNotaFinalHombres/contadorDeHombres;
-	promedioDeNotasDeMujeres=acumuladorNotaFinalMujeres/contadorDeMujeres;
-	document.write("<br> La cantidad de varones aprobados es" +contadorHombresAprobados);
-	document.write("<br> El promedio de notas de los menores de edad es " +promedioDeNotasDeMenoresDeEdad);
-	document.write("<br> El promedio de notas de los adolescentes es " +promedioDeNotasDeAdolescentes);
-	document.write("<br> El promedio de notas de los mayores de edad es " +promedioDeNotasDeMayores);
-	document.write("<br> El promedio de notas de los hombres es " +promedioDeNotasDeHombres);
-	document.write("<br> El promedio de notas de las mujeres es" +promedioDeNotasDeMujeres);
+		console.log(nombre);
+		console.log("edad " +edad);
+		console.log("sexo " +sexo);
+		console.log("nota final " +notaFinal);
+		console.log("cantidad mujeres: " +contadorDeMujeres);
+		console.log("cantidad hombres: " +contadorDeHombres);
+		respuesta=prompt("Ingrese 'si' si quiere continuar, de ser el caso contrario, ingrese cualquier caracter.");
+	}while(respuesta=="si");
+		
+		promedioDeNotasDeMenoresDeEdad=acumuladorDeNotasDeMenoresDeEdad/contadorDeMenoresDeEdad;
+		promedioDeNotasDeAdolescentes=acumuladorDeNotasDeAdolescentes/contadorDeAdolescentes;
+		promedioDeNotasDeMayoresDeEdad=acumuladorDeNotasDeMayoresDeEdad/contadorDeMayoresDeEdad;
+		promedioDeNotasDeHombres=acumuladorDeNotasDeHombres/contadorDeHombres;
+		promedioDeNotasDeMujeres=acumuladorDeNotasDeMujeres/contadorDeMujeres;
+
+		document.write("<br> La cantidad de hombres aprobados son: " +contadorDeHombresAprobados);
+		document.write("<br> El promedio de notas entre los menores de edad es: " +promedioDeNotasDeMenoresDeEdad);
+		document.write("<br> El promedio de notas entre los adolescentes es: " +promedioDeNotasDeAdolescentes);
+		document.write("<br> El promedio de notas entre los mayores de edad es: " +promedioDeNotasDeMayoresDeEdad);
+		document.write("<br> El promedio de notas de las mujeres es: " +promedioDeNotasDeMujeres);
+		document.write("<br> El promedio de notas de los hombres es: " +promedioDeNotasDeHombres);
 }
+
+
